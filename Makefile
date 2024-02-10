@@ -2,13 +2,17 @@ CC = gcc
 AR = ar
 FLAGS = -Wall -g
 
-all: connections
+all: my_graph my_Knapsack
 
-connections: my_graph.o mat.a
-	${CC} ${FLAGS} -o connections my_graph.o mat.a
+my_Knapsack: my_Knapsack.o
+	${CC} ${FLAGS} -o my_Knapsack my_Knapsack.o 
 
-mat.a: my_mat.o
-	${AR} -rcs mat.a my_mat.o
+my_Knapsack.o: my_Knapsack.c
+	${CC} ${FLAGS} -c my_Knapsack.c
+
+my_graph: my_graph.o 
+	${CC} ${FLAGS} -o my_graph my_graph.o 
+
 	
 my_graph.o: my_graph.c my_mat.h
 	${CC} ${FLAGS} -c my_graph.c
