@@ -12,9 +12,9 @@ int main() {
     char items[ITEMS] = {'A', 'B', 'C', 'D', 'E'};
     int *array[5];
 
-    // Prompt the user to input the weight and value for each element
+    //input the weight and value for each element
      for (int i = 0; i < 5; i++) {
-        array[i] = (int*)malloc(2*sizeof(int)); // Allocate memory for weight
+        array[i] = (int*)malloc(2*sizeof(int)); 
 
         printf("Enter weight for element %d: ", i);
         scanf("%d", &array[i][0]);
@@ -23,6 +23,7 @@ int main() {
         scanf("%d", &array[i][1]);
     }
 
+//making a list for values and weights
     int values[ITEMS], weights[ITEMS];
     for (int i = 0; i < ITEMS; i++){
         values[i]=array[i][1];
@@ -39,12 +40,12 @@ int main() {
 
     printf("Maximum profit: %d\n", max_value);
 
-    // printing what items give max value
-    printf("Items that give the maximum profit: ");
+    printf("Items that give the maximum profit: [");
     for (int i = 0; i < ITEMS; i++) {
         if (selected_bool[i])
-            printf("%c ", items[i]);
+            printf("%c, ", items[i]);
     }
+    printf("\b\b]\n");
     printf("\n");
 for (int i = 0; i < 5; i++) {
         free(array[i]);
