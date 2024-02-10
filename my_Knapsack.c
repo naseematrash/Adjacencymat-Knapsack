@@ -40,12 +40,11 @@ int main() {
 
     printf("Maximum profit: %d\n", max_value);
 
-    printf("Items that give the maximum profit: [");
+    printf("Selected items: ");
     for (int i = 0; i < ITEMS; i++) {
         if (selected_bool[i])
-            printf("%c, ", items[i]);
+            printf("%c ", items[i]);
     }
-    printf("\b\b]\n");
     printf("\n");
 
 for (int i = 0; i < 5; i++) {
