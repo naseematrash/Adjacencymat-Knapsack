@@ -9,7 +9,7 @@ int knapSack(int weights[], int values[], int selected_bool[]);
 
 
 int main() {
-    char items[ITEMS] = {'A', 'B', 'C', 'D', 'E'};
+    char items[ITEMS] = {'a', 'b', 'c', 'd', 'e'};
     int *array[5];
 
     //input the weight and value for each element
