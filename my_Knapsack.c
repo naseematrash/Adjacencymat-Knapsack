@@ -10,16 +10,28 @@ int knapSack(int weights[], int values[], int selected_bool[]);
 
 int main() {
     char items[ITEMS] = {'A', 'B', 'C', 'D', 'E'};
+    int *array[5];
+
+    // Prompt the user to input the weight and value for each element
+     for (int i = 0; i < 5; i++) {
+        array[i] = (int*)malloc(2*sizeof(int)); // Allocate memory for weight
+
+        printf("Enter weight for element %d: ", i);
+        scanf("%d", &array[i][0]);
+
+        printf("Enter value for element %d: ", i);
+        scanf("%d", &array[i][1]);
+    }
+
     int values[ITEMS], weights[ITEMS];
-    
-    printf("Enter the values for items:\n");
-    for (int i = 0; i < ITEMS; i++)
-        scanf("%d", &values[i]);
-    
-    printf("Enter the weights for items:\n");
-    for (int i = 0; i < ITEMS; i++)
-        scanf("%d", &weights[i]);
-    
+    for (int i = 0; i < ITEMS; i++){
+        values[i]=array[i][1];
+    }
+    for (int i = 0; i < ITEMS; i++){
+        weights[i]=array[i][0];
+    }
+        
+
     int selected_bool[ITEMS] = {0};
 
     int max_value = knapSack(weights, values, selected_bool);
@@ -34,7 +46,9 @@ int main() {
             printf("%c ", items[i]);
     }
     printf("\n");
-
+for (int i = 0; i < 5; i++) {
+        free(array[i]);
+    }
     return 0;
 }
 
