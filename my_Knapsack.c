@@ -1,4 +1,4 @@
-
+#include <stdlib.h>
 #include <stdio.h>
 #define MAX_WEIGHT 20
 #define ITEMS 5
@@ -47,6 +47,7 @@ int main() {
     }
     printf("\b\b]\n");
     printf("\n");
+
 for (int i = 0; i < 5; i++) {
         free(array[i]);
     }
