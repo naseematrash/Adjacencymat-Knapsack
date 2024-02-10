@@ -9,30 +9,24 @@ int knapSack(int weights[], int values[], int selected_bool[]);
 
 
 int main() {
-    char items[ITEMS] = {'a', 'b', 'c', 'd', 'e'};
-    int *array[5];
+    char items[ITEMS] = {'A', 'B', 'C', 'D', 'E'};
+    int array[ITEMS][2];
+    char letter;
 
     //input the weight and value for each element
-     for (int i = 0; i < 5; i++) {
-        array[i] = (int*)malloc(2*sizeof(int)); 
-
-        printf("Enter weight for element %d: ", i);
-        scanf("%d", &array[i][0]);
-
-        printf("Enter value for element %d: ", i);
-        scanf("%d", &array[i][1]);
-    }
+     for (int i = 0; i < ITEMS; i++) {
+    scanf(" %c %d %d", &letter, &array[i][0], &array[i][1]);
+}
+  
 
 //making a list for values and weights
     int values[ITEMS], weights[ITEMS];
     for (int i = 0; i < ITEMS; i++){
         values[i]=array[i][1];
-    }
-    for (int i = 0; i < ITEMS; i++){
         weights[i]=array[i][0];
     }
+ 
         
-
     int selected_bool[ITEMS] = {0};
 
     int max_value = knapSack(weights, values, selected_bool);
@@ -42,14 +36,13 @@ int main() {
 
     printf("Selected items: ");
     for (int i = 0; i < ITEMS; i++) {
-        if (selected_bool[i])
+        if (selected_bool[i]){
             printf("%c ", items[i]);
+    }
     }
     printf("\n");
 
-for (int i = 0; i < 5; i++) {
-        free(array[i]);
-    }
+
     return 0;
 }
 
@@ -61,6 +54,7 @@ solving the  knapsack problem using dynamic programming
 
 */
 int knapSack(int weights[], int values[], int selected_bool[]) {
+    
     int i, w;
     int table[ITEMS + 1][MAX_WEIGHT + 1];
 
